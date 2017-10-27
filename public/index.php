@@ -10,6 +10,9 @@ $route = $_GET['route'] ?? '';
 if ($route == 'programs') {
     $controller = new \Controller\ProgramController();
     echo $controller->indexAction();
+} elseif ($route == 'infoprogram') {
+    $controller = new \Controller\InfoController();
+    echo $controller->indexAction();
 } elseif ($route == 'add') {
     $controller = new \Controller\ProgramController();
     echo $controller->addAction();
