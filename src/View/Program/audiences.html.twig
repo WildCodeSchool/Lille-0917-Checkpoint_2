@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <h1>Audiences</h1>
+
+    <ul>
+        {% for audience in audiences %}
+            {% if audience.audience is defined %}
+                <li>{{ audience.name }} - {{ audience.audience }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}

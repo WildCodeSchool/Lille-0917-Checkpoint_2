@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Add a program</h1>
 
-    <form action="/add-program" method="post">
+    <form action="" method="post">
 
         <div class="form-group">
             <label for="name">Program name</label>
@@ -20,10 +20,18 @@
             <input type="start" class="form-control" name="start" id="start" placeholder="Y-m-d H:i:s">
         </div>
 
-        <p>Add the missing fields ... </p>
+        <div class="form-group">
+            <label for="start">Duration</label>
+            <input type="text" class="form-control" name="duration" id="duration" placeholder="Duration">
+        </div>
+
+        <div class="form-group">
+            <label for="start">Channel_id</label>
+            <input type="text" class="form-control" name="channel" id="channel" placeholder="Channel Id">
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <hr/>
-    <a href="/home" class="btn btn-default">Go Home</a>
+    <a href="/" class="btn btn-default">Go Home</a>
 {% endblock %}

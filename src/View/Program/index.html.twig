@@ -4,12 +4,22 @@
     <h1>Program list</h1>
 
     <ul>
-    {% for program in programs %}
-        <li>
-        {{ program.name }} -
-        {{ program.start|date('l H:i') }}
-        </li>
-    {% endfor %}
+        {% for channel in channels %}
+            <li>
+                {{ channel.name }}
+                <ul>
+                    {% for program in programs %}
+                            {% if program.name == channel.name %}
+                                <li>
+                                <a href="program/{{ program.p_id }}">{{ program.p_name }}</a>
+                                    - {{ program.start|date('l H:i') }} ({{ program.duration }} min)
 
+                            {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
     </ul>
+
+
 {% endblock %}

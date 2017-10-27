@@ -22,15 +22,18 @@ class ProgramManager
     /**
      *
      */
-    public function findAll()
+    public function findPrograms()
     {
-        $query = "SELECT * FROM program";
+
+        $query = "SELECT *, program.name as p_name, program.id as p_id FROM program INNER JOIN channel 
+                  ON program.channel_id = channel.number ORDER BY start";
 
         $programs = $this->conn->query(
             $query, \PDO::FETCH_CLASS, Program::class)
             ->fetchAll();
         return $programs;
     }
+
 
     /**
      * @param $id
@@ -49,9 +52,11 @@ class ProgramManager
     /**
      *
      */
+
+
     public function insert($data)
     {
-        //TODO : Implements SQL INSERT request
+        //Todo
     }
 
     /**
@@ -68,5 +73,14 @@ class ProgramManager
     public function update($id)
     {
         //TODO : Implements SQL UPDATE request
+    }
+
+    public function showAudiences()
+    {
+        $query = "SELECT * FROM program";
+        $programs = $this->conn->query(
+            $query, \PDO::FETCH_CLASS, Program::class)
+            ->fetchAll();
+        return $programs;
     }
 }

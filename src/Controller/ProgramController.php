@@ -3,6 +3,7 @@
 namespace Controller;
 
 
+use Model\ChannelManager;
 use Model\Program;
 use Model\ProgramManager;
 
@@ -15,10 +16,26 @@ class ProgramController extends AbstractController
      */
     public function indexAction()
     {
+        $channelManager = new ChannelManager();
         $programManager = new ProgramManager();
-        $programs = $programManager->findAll();
+        $programs = $programManager->findPrograms();
+        $channels = $channelManager->findChannelsByNumber();
         return $this->_twig->render('Program/index.html.twig', [
-           'programs' => $programs,
+            'programs' => $programs,
+            'channels' => $channels,
+        ]);
+    }
+
+    /**
+     * Show selected program
+     * @return string
+     */
+    public function ProgramAction($id)
+    {
+        $programManager = new ProgramManager();
+        $program = $programManager->findOne($id);
+        return $this->_twig->render('Program/program.html.twig',[
+            'program' => $program
         ]);
     }
 
@@ -28,11 +45,19 @@ class ProgramController extends AbstractController
      */
     public function addAction()
     {
-        $program = new Program();
-
-        //...
-
-
         return $this->_twig->render('Program/add.html.twig');
+    }
+
+    /**
+     * show audiences
+     * @return string
+     */
+    public function audiencesAction()
+    {
+        $programManager = new ProgramManager();
+        $audiences = $programManager->showAudiences();
+        return $this->_twig->render('Program/audiences.html.twig',[
+            'audiences' => $audiences
+        ]);
     }
 }

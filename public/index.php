@@ -10,7 +10,16 @@ $route = $_GET['route'] ?? '';
 if ($route == 'programs') {
     $controller = new \Controller\ProgramController();
     echo $controller->indexAction();
-} elseif ($route == 'add') {
+}
+elseif ($route == 'audiences') {
+    $controller = new \Controller\ProgramController();
+    echo $controller->audiencesAction();
+}
+elseif ($route == 'program') {
+    $controller = new \Controller\ProgramController();
+    echo $controller->ProgramAction($id);
+}
+elseif ($route == 'add') {
     $controller = new \Controller\ProgramController();
     echo $controller->addAction();
 } else {
