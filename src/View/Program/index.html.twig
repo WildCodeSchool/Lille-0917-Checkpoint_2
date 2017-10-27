@@ -4,10 +4,11 @@
     <h1>Program list</h1>
 
     <ul>
-    {% for program in programs %}
+    {% for program in programs|sort  %}
         <li>
-        {{ program.name }} -
-        {{ program.start|date('l H:i') }}
+        {{ program.start|date('H:i') }} :
+        {{ program.name }}
+        ({{ program.duration }}min)
         </li>
     {% endfor %}
 

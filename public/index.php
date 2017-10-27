@@ -13,8 +13,9 @@ if ($route == 'programs') {
 } elseif ($route == 'add') {
     $controller = new \Controller\ProgramController();
     echo $controller->addAction();
+} elseif ($route == 'audiences') {
+    $controller = new \Controller\ProgramController();
 } else {
     http_response_code(404);
     echo 'Page inconnue';
 }
-

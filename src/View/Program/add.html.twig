@@ -5,6 +5,12 @@
 
     <form action="/add-program" method="post">
 
+
+        <div class="form-group">
+            <label for="channel">Program channel</label>
+            <input type="text" class="form-control" name="channel" id="channel" placeholder="Program Channel">
+        </div>
+
         <div class="form-group">
             <label for="name">Program name</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="Program name...">
@@ -18,6 +24,16 @@
         <div class="form-group">
             <label for="start">Program start</label>
             <input type="start" class="form-control" name="start" id="start" placeholder="Y-m-d H:i:s">
+        </div>
+
+        <div class="form-group">
+            <label for="audience">Program audience</label>
+            <input type="number" class="form-control" name="audience" id="audience" placeholder="Program audience...">
+        </div>
+
+        <div class="form-group">
+            <label for="start">Program duration</label>
+            <input type="number" class="form-control" name="time" id="time" placeholder="in minutes">
         </div>
 
         <p>Add the missing fields ... </p>
