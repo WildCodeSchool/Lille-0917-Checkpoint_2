@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Add a program</h1>
+
+    <form action="/add-program" method="post">
+
+        <div class="form-group">
+            <label for="name">Program name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Program name...">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Program description</label>
+            <textarea class="form-control" name="description" id="description" placeholder="Program description..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="start">Program start</label>
+            <input type="start" class="form-control" name="start" id="start" placeholder="Y-m-d H:i:s">
+        </div>
+
+        <p>Add the missing fields ... </p>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <hr/>
+    <a href="/home" class="btn btn-default">Go Home</a>
+{% endblock %}

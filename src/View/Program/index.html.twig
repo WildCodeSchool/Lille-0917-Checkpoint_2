@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Program list</h1>
+
+    <ul>
+    {% for program in programs %}
+        <li>
+        {{ program.name }} -
+        {{ program.start|date('l H:i') }}
+        </li>
+    {% endfor %}
+
+    </ul>
+{% endblock %}
