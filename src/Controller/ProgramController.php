@@ -5,6 +5,8 @@ namespace Controller;
 
 use Model\Program;
 use Model\ProgramManager;
+use Model\Channel;
+use Model\ChannelManager;
 
 class ProgramController extends AbstractController
 {
@@ -16,9 +18,13 @@ class ProgramController extends AbstractController
     public function indexAction()
     {
         $programManager = new ProgramManager();
+        $channelManager = new ChannelManager();
         $programs = $programManager->findAll();
+        $channels = $channelManager->findAll();
+
         return $this->_twig->render('Program/index.html.twig', [
-           'programs' => $programs,
+            'programs' => $programs,
+            'channels' =>$channels
         ]);
     }
 

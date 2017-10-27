@@ -51,7 +51,13 @@ class ProgramManager
      */
     public function insert($data)
     {
-        //TODO : Implements SQL INSERT request
+        $statement = $this->conn->prepare('INSERT * FROM program WHERE id=:id');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        $statement->setFetchMode(\PDO::FETCH_CLASS, Program::class);
+        $program = $statement->fetch();
+
+        return $program;
     }
 
     /**
@@ -59,7 +65,13 @@ class ProgramManager
      */
     public function delete($id)
     {
-        //TODO : Implements SQL DELETE request
+        $statement = $this->conn->prepare('DELETE * FROM program WHERE id=:id');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        $statement->setFetchMode(\PDO::FETCH_CLASS, Program::class);
+        $program = $statement->fetch();
+
+        return $program;
     }
 
     /**
@@ -67,6 +79,12 @@ class ProgramManager
      */
     public function update($id)
     {
-        //TODO : Implements SQL UPDATE request
+        $statement = $this->conn->prepare('UPDATE * FROM program WHERE id=:id');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        $statement->setFetchMode(\PDO::FETCH_CLASS, Program::class);
+        $program = $statement->fetch();
+
+        return $program;
     }
 }
