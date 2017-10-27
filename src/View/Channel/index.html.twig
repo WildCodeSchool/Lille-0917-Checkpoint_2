@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Chaines list</h1>
+
+    <ul>
+
+        {% for channel in channels %}
+            <li>
+                {{ channel.name }} -
+                {{ channel.number }}
+            </li>
+        {% endfor %}
+
+
+    </ul>
+{% endblock %}

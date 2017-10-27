@@ -10,10 +10,28 @@ $route = $_GET['route'] ?? '';
 if ($route == 'programs') {
     $controller = new \Controller\ProgramController();
     echo $controller->indexAction();
-} elseif ($route == 'add') {
+}
+elseif ($route == 'programdescription') {
+    $controller = new \Controller\ProgramController();
+    echo $controller->showDescription();
+}
+elseif ($route == 'programsadd') {
     $controller = new \Controller\ProgramController();
     echo $controller->addAction();
-} else {
+}
+elseif ($route == 'channels') {
+    $controller = new \Controller\ChannelController();
+    echo $controller->indexAction();
+}
+elseif ($route == 'channelsadd') {
+    $controller = new \Controller\ChannelController();
+    echo $controller->addAction();
+}
+
+
+
+
+else {
     http_response_code(404);
     echo 'Page inconnue';
 }

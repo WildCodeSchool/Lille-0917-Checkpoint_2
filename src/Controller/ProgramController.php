@@ -35,4 +35,19 @@ class ProgramController extends AbstractController
 
         return $this->_twig->render('Program/add.html.twig');
     }
+
+
+    /**
+     * Add one program
+     * @return string
+     */
+    public function showDescription()
+    {
+        $program = new Program();
+
+        //...
+
+
+        return $this->_twig->render('Program/program.html.twig');
+    }
 }
