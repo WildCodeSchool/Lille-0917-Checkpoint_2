@@ -24,7 +24,7 @@ class ProgramManager
      */
     public function findAll()
     {
-        $query = "SELECT * FROM program";
+        $query = "SELECT * FROM program ORDER BY channel_id, start";
 
         $programs = $this->conn->query(
             $query, \PDO::FETCH_CLASS, Program::class)

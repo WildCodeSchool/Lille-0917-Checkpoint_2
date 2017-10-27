@@ -4,7 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/db.php';
 require_once __DIR__ . '/../app/config.php';
 
-$route = $_GET['route'] ?? '';
+$route = $_GET['route'] = 'programs';
 
 // Matching index.php?route=home URL
 if ($route == 'programs') {
